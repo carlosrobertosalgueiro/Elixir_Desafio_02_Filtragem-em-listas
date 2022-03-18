@@ -1,5 +1,5 @@
 defmodule ListFilter do
-  def calc(list) do
+  def call(list) do
     list
     |> Enum.flat_map(fn element -> parseNumber(element) end)
     |> counter_odd_number()
