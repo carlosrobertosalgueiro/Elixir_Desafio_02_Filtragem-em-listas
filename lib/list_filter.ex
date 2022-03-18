@@ -1,20 +1,18 @@
 defmodule ListFilter do
-  def build(list) do
+  def calc(list) do
     list
-    |> Enum.map(&to_convert/1)
-    |> filter()
-    |> counter_number()
+    |> Enum.flat_map(fn element -> parseNumber(element) end)
+    |> counter_odd_number()
   end
 
-  def to_convert(list) do
-    String.to_integer(list)
+  def parseNumber(element) do
+    case Integer.parse(element) do
+      {integer, _} -> [integer]
+      :error -> []
+    end
   end
 
-  def filter(list) do
-    Enum.filter(list, fn x -> is_number(x) end)
-  end
-
-  defp counter_number(list) do
-    Enum.count(list, fn x -> rem(x, 2) != 0 end)
+  defp counter_odd_number(element) do
+    Enum.count(element, fn element -> rem(element, 2) == 1 end)
   end
 end
