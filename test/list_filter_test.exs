@@ -3,11 +3,21 @@ defmodule ListFilterTest do
 
   describe "call/1" do
     test "when a valid list is provided, returns the number of odd numbers" do
-      response = ["1", "2", "carlos", "3", "4", "5", "text"]
+      list = ["bruce", "1", "3", "5", "6"]
 
-      expected_response = ["1", "2", "carlos", "3", "4", "5", "text"]
+      response = ListFilter.call(list)
+
+      expected_response = 3
 
       assert response == expected_response
     end
+
+    # test "when an invalid list is provided, returns an error" do
+    #   response = []
+
+    #   expected_response = "banana"
+
+    #   assert response == expected_response
+    # end
   end
 end
