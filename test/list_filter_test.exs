@@ -12,12 +12,14 @@ defmodule ListFilterTest do
       assert response == expected_response
     end
 
-    # test "when an invalid list is provided, returns an error" do
-    #   response = []
+    test "when an invalid list is provided, returns " do
+      list = []
 
-    #   expected_response = "banana"
+      response = ListFilter.call(list)
 
-    #   assert response == expected_response
-    # end
+      expected_response = 0
+
+      assert response == expected_response
+    end
   end
 end
