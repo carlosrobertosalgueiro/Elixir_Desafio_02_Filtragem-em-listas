@@ -12,7 +12,7 @@ defmodule ListFilterTest do
       assert response == expected_response
     end
 
-    test "when an invalid list is provided, returns " do
+    test "when an empty list is given, it returns zero " do
       list = []
 
       response = ListFilter.call(list)
